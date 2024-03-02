@@ -1,25 +1,10 @@
-# Bash Email Crawling
+# Query2Email
+Google query to email (to get the email of a company just using their name for example)
 
-Very simple bash script to crawl email addresses from a specific website.
-
-
-## Disclaimer
-
-You CANNOT use it against any laws and TOS of the available online services.
-
-This script is just here as a study example to show how to make a bash scraper, but YOU are fully responsible of the usage of it and YOU CANNOT use it illegally or for spamming users. The script and myself (the present author) cannot in any case be responsible of the usage you make with it.
-
-
-## Author
-
-[Pierre-Henry Soria](http://about.ph7.me)
-
-
-## Contact
-
-You can by email at **me [[AT]] ph7 [[D0T]] me**
-
+## Usage
+Create a python virtual envirement and install everything from the requirements.txt file,   
+then just run `pip/pip3 install -r requirements.txt`.
+You should now be able to run `python3 crawler.py`
 
 ## License
-
-This script is released under [MIT License](https://opensource.org/licenses/mit-license.php). Enjoy :-)
+This project is released under the [MIT License](https://opensource.org/licenses/mit-license.php). 
