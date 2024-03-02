@@ -1,4 +1,5 @@
 from requests_html import HTMLSession
+from googlesearch import search
 import re 
 
 def find_emails(text):
@@ -6,11 +7,32 @@ def find_emails(text):
     emails = re.findall(pattern, text)
     return emails
 
-session = HTMLSession()
-url = input("URL: ")
-response = session.get(url)
-response.html.render()
+def get_first_google_result(query):
+    try:
+        # Using generator to get only the first result
+        search_results = search(query, num=1, stop=1, pause=2)
+        return next(search_results)
+    except StopIteration:
+        return None
+    except Exception as e:
+        print("An error occurred:", e)
+        return None
 
-website_html = str(response.html.raw_html)
-emails = find_emails(website_html)
-print(emails)
+
+def main():
+    session = HTMLSession()
+    query = input("query: ")
+    googleResult = get_first_google_result(query)
+    if googleResult is None:
+        print("failed to search on google")
+        return
+    print("found: " + googleResult)
+    response = session.get(googleResult)
+    response.html.render()
+
+    website_html = str(response.html.raw_html)
+    emails = find_emails(website_html)
+    print(emails)
+
+if __name__ == "__main__":
+    main()
